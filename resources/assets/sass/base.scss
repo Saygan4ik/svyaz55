@@ -1,0 +1,575 @@
+body {
+  background-image: repeating-radial-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1) 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
+}
+
+/* =========================Header==========================*/
+header {
+  margin-top: 10px;
+  padding-top: 10px;
+  background-image: url("/image/main-bg.jpg");
+  background-size: cover;
+}
+
+.logo {
+  margin: 10px;
+  padding: 0px 10px;
+  border: 3px solid black;
+  border-radius: 3px;
+
+  .logo-brand {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .logo-phone {
+    font-size: 20px;
+    text-decoration: none;
+    img {
+      width: 20px;
+    }
+  }
+}
+
+.main-nav {
+  margin-top: 300px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .main-nav-item {
+    flex-basis: 20%;
+    min-width: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: white;
+    border-bottom: 5px solid black;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 100%;
+      border-bottom: 5px solid black;
+      position: absolute;
+      bottom: -5px;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: white;
+      color: black;
+      transition: 1s;
+      &::after {
+        transform: translateY(-35px);
+        transition: 1s;
+      }
+    }
+  }
+}
+
+/* =======================Section Products======================*/
+
+#section_products > .container{
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: white;
+  background-image: repeating-linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1) 1px, transparent 3px, transparent 100%);
+  background-size: 3px 3px;
+}
+
+/* =====first nav===== */
+.product-cat-nav {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.product-cat-nav-inner {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #2ca02c;
+
+  .product-cat-nav-item {
+    position: relative;
+    background-color: darkgreen;
+    color: white;
+    text-transform: uppercase;
+    padding: 5px;
+    border-bottom: 1px solid #2a88bd;
+
+    &::after {
+      content: " ";
+      background: url("/svg/arrow-circle-right.svg");
+      background-size: 15px 15px;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right: 10px;
+      top: 9px;
+      opacity: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: #2ab27b;
+      transition: 0.3s;
+
+      &::after {
+        opacity: 1;
+        transition: 1s;
+      }
+    }
+  }
+
+  &:nth-last-child {
+    border-bottom: none;
+  }
+}
+
+/* =====second nav===== */
+.product-brand-nav {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.product-brand-nav-inner {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #2a88bd;
+
+  .product-brand-nav-item {
+    text-align: center;
+    color: white;
+  }
+}
+
+/* =====product block===== */
+.product-item-block {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.product-item-block-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid blue;
+  border-radius: 3px;
+  background-color: darkgreen;
+  padding: 10px;
+
+  .product-item {
+    width: 250px;
+    color: white;
+    border: 3px solid white;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+
+    /* =====product name===== */
+    h2, h3 {
+      line-height: 0px;
+    }
+
+    /* =====product img===== */
+    .product-item-img {
+      position: relative;
+      margin-top: 15px;
+      border: 1px solid white;
+      border-radius: 3px;
+      width: 100%;
+      img {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+
+    /* =====product rating===== */
+    .product-item-rating {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border: 3px solid black;
+      border-radius: 10px;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 8px;
+      line-height: 0px;
+    }
+
+    /* =====product characteristics===== */
+    .product-item-char {
+      margin-top: 5px;
+      border: 1px solid white;
+      border-radius: 3px;
+
+      ul {
+        list-style: none;
+        padding: 3px;
+        margin: 0px;
+
+        li {
+          display: inline-block;
+          width: 100%;
+          padding: 3px;
+          border: 1px solid black;
+          border-radius: 3px;
+          border-bottom: none;
+          background-color: green;
+
+          &:nth-child(2n) {
+            background-color: #2ca02c;
+          }
+
+          &:last-child {
+            border-bottom: 1px solid black;
+          }
+        }
+      }
+    }
+
+    /* =====product additional characteristics===== */
+    .product-item-func {
+      margin-top: 5px;
+      border: 1px solid white;
+      border-radius: 3px;
+
+      ul {
+        padding-top: 5px;
+        padding-left: 20px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+
+    /* =====product price===== */
+    .product-item-price-normal {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    /* =====product price with discount===== */
+    .product-item-price-discount {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: end;
+      background-color: gold;
+      line-height: 40px;
+      margin: 10px;
+      padding-right: 5px;
+      color: red;
+      border-radius: 3px;
+      position: relative;
+
+      &::before {
+        content: "";
+        font-size: 8px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border: 20px solid transparent;
+        border-top: 20px solid red;
+        border-left: 20px solid red;
+      }
+
+      &::after {
+        content: "акция";
+        font-size: 10px;
+        position: absolute;
+        top: -3px;
+        left: 0px;
+        transform: rotate(-45deg);
+        color: gold;
+      }
+    }
+  }
+}
+
+/* =======================Section Services======================*/
+
+#section_services > .container{
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: white;
+  background-image: repeating-linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1) 1px, transparent 3px, transparent 100%);
+  background-size: 3px 3px;
+}
+
+.services-item {
+  border: 1px solid grey;
+  background-color: lightgrey;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 5px;
+
+  .services-text {
+    font-size: 20px;
+    text-indent: 30px;
+  }
+
+  .services-img {
+
+    img {
+      width: 100%;
+      border-radius: 3px;
+    }
+  }
+}
+
+.services-more {
+  width: 100%;
+  padding: 0px 5px 5px;
+
+  button {
+    width: 100%;
+  }
+}
+
+/* =======================Section Contacts======================*/
+
+#section_services > .container{
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: white;
+  background-image: repeating-linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1) 1px, transparent 3px, transparent 100%);
+  background-size: 3px 3px;
+}
+
+.contacts-block {
+  margin-top: 10px;
+  border: 1px solid black;
+  background-color: #2F3133;
+  color: white;
+}
+
+/*======================admin panel=========================*/
+
+.admin-nav-md {
+  position: fixed;
+  width: inherit;
+  height: 100%;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: #333333;
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  a {
+    border: 2px solid white;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+    color: white;
+    font-weight: bold;
+    text-transform: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+    background-color: #A5A5A5;
+    color: black;
+    transition: 0.3s;
+  }
+}
+
+.delete-button {
+  position: absolute;
+  box-sizing: border-box;
+  text-align: center;
+  width: 32px;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  font-size: 22px;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "Удалить";
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px -1px 1px grey;
+    position: absolute;
+    font-size: 12px;
+    background-color: #2e3436;
+    color: white;
+    padding: 0px 3px;
+    top: -25px;
+    left: -10px;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transition: 0.1s;
+    transition-delay: 1s;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    border: 5px solid transparent;
+    border-top: 5px solid black;
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transition: 0.1s;
+    transition-delay: 1s;
+  }
+}
+
+.edit-button {
+  position: absolute;
+  box-sizing: border-box;
+  text-align: center;
+  width: 32px;
+  background-color: orange;
+  color: white;
+  border-radius: 3px;
+  font-size: 22px;
+  top: 5px;
+  right: 42px;
+  cursor: pointer;
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "Редактировать";
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px -1px 1px grey;
+    position: absolute;
+    font-size: 12px;
+    background-color: #2e3436;
+    color: white;
+    padding: 0px 3px;
+    top: -25px;
+    left: -30px;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transition: 0.1s;
+    transition-delay: 1s;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    border: 5px solid transparent;
+    border-top: 5px solid black;
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transition: 0.1s;
+    transition-delay: 1s;
+  }
+}
+
+
+/*=======================section roles=====================*/
+
+#section_roles {
+
+  .roles-item {
+    position: relative;
+    border-radius: 5px;
+    margin: 3px;
+    padding: 5px;
+    background-color: aqua;
+
+    h3 {
+      line-height: 10px;
+    }
+  }
+
+  .roles-item:hover {
+    transform: scale(1.01);
+    background-color: #2ca02c;
+    color: white;
+    transition: 0.3s;
+  }
+}
+
+.permissions {
+
+  .permission-item {
+
+    .permission-checkbox {
+
+      &:not(checked) {
+        opacity: 0;
+      }
+
+      &:not(checked) + label {
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+      }
+
+      &:not(checked) + label::before {
+        content: "";
+        position: absolute;
+        border: 2px solid grey;
+        background-color: white;
+        top: 0px;
+        left: 0px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+
+      &:checked + label::before {
+        background-color: lightgreen;
+        transition: 0.3s;
+      }
+    }
+  }
+}
