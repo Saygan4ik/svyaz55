@@ -11819,7 +11819,7 @@ header {
   padding-bottom: 30px;
 }
 
-.admin-nav-md a {
+.admin-nav-md .admin-nav-item {
   border: 2px solid white;
   border-radius: 3px;
   padding: 5px;
@@ -11829,12 +11829,38 @@ header {
   text-transform: none;
 }
 
-.admin-nav-md a:hover {
+.admin-nav-md .admin-nav-item a {
+  display: inline-block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.admin-nav-md .admin-nav-item:hover {
   text-decoration: none;
   background-color: #A5A5A5;
-  color: black;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.admin-nav-md .admin-nav-item:hover a {
+  color: black;
+}
+
+.admin-nav-md .admin-nav-item-characteristic {
+  position: relative;
+}
+
+.admin-nav-md .admin-nav-item-characteristic .admin-nav-item-characteristic-dropdown {
+  position: absolute;
+  display: none;
+  top: 0px;
+  right: 0px;
+}
+
+.admin-nav-md .admin-nav-item-characteristic:hover .admin-nav-item-characteristic-dropdown {
+  display: block;
+  z-index: 1;
 }
 
 .delete-button {
@@ -11971,6 +11997,36 @@ header {
           transition-delay: 1s;
 }
 
+.checkbox-button:not(checked) {
+  opacity: 0;
+}
+
+.checkbox-button:not(checked) + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.checkbox-button:not(checked) + label::before {
+  content: "";
+  position: absolute;
+  border: 2px solid grey;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox-button:checked + label::before {
+  background-color: lightgreen;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 /*=======================section roles=====================*/
 
 #section_roles .roles-item {
@@ -11994,33 +12050,158 @@ header {
   transition: 0.3s;
 }
 
-.permissions .permission-item .permission-checkbox:not(checked) {
-  opacity: 0;
-}
-
-.permissions .permission-item .permission-checkbox:not(checked) + label {
+#section_categories .categories-item {
   position: relative;
-  padding-left: 30px;
-  cursor: pointer;
+  border-radius: 5px;
+  margin: 3px;
+  padding: 5px;
+  background-color: aqua;
 }
 
-.permissions .permission-item .permission-checkbox:not(checked) + label::before {
-  content: "";
-  position: absolute;
-  border: 2px solid grey;
+#section_categories .categories-item h3 {
+  line-height: 10px;
+}
+
+#section_categories .categories-item a {
+  color: inherit;
+}
+
+#section_categories .categories-item:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  background-color: #2ca02c;
+  color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/*=======================edit users=====================*/
+
+.user-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-left: 5px solid green;
+  padding-left: 3px;
+}
+
+.user-avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user-avatar img {
+  margin: 3px;
+  width: 100px;
+  height: 100px;
+}
+
+.user-data {
+  margin-left: 5px;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+}
+
+.users .users-item {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-bottom: 3px;
   background-color: white;
-  top: 0px;
-  left: 0px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  padding: 3px;
+}
+
+.users .users-item:hover {
+  cursor: pointer;
+  background-color: lime;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.permissions .permission-item .permission-checkbox:checked + label::before {
-  background-color: lightgreen;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+.users .users-item .users-item-avatar-lg {
+  display: none;
+}
+
+.users .users-item .users-item-avatar-sm img {
+  width: 30px;
+  height: 30px;
+}
+
+.users .users-item .users-item-avatar-sm:hover .users-item-avatar-lg {
+  display: block;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  z-index: 1;
+}
+
+.users .users-item .users-item-avatar-sm:hover .users-item-avatar-lg img {
+  width: 100px;
+  height: 100px;
+}
+
+.characteristicProduct {
+  border: 3px solid black;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #f0ad4e;
+}
+
+.moreCharacteristicProduct {
+  border: 3px solid black;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #f0ad4e;
+}
+
+.admin-product-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.admin-product-images .admin-product-images-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px;
+  width: 250px;
+}
+
+.admin-product-images .admin-product-images-item img {
+  border: 5px solid red;
+  border-radius: 5px;
+  width: 240px;
+}
+
+.admin-product-images .admin-product-images-item .product-image-main {
+  border: 5px solid lime;
+  border-radius: 5px;
+}
+
+.base-characteristic-item {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 3px;
+  background-color: white;
+}
+
+.base-characteristic-item .base-characteristic-item-data {
+  font-size: 12px;
+  line-height: 8px;
 }
 

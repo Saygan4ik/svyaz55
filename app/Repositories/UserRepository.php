@@ -17,21 +17,32 @@ class UserRepository extends BaseRepository {
 
     public function save($user, $inputs) {
         $user->name = $inputs['name'];
-
-        if($user->save()) {
-            if($inputs->hasFile('avatar')) {
-                $image = $inputs->file('avatar');
-                $extension = $image->getClientOriginalExtension();
-                $path = 'image/avatar/'.$user->id.'.'.$extension;
-                $image = Image::make($image)->resize(50, 50)->save($path);
-                $user->avatar = $path;
-                $user->save();
-            }
-        }
+        $user->save();
     }
 
     public function update($id, $inputs) {
         $user = $this->getById($id);
         return $this->save($user, $inputs);
+    }
+
+    public function saveAvatar($inputs, $id) {
+        if($inputs->hasFile('image_file')) {
+            $avatarData = json_decode($inputs['image_data']);
+            $user = $this->getById($id);
+            $image = $inputs->file('image_file');
+            $extension = $image->getClientOriginalExtension();
+            $path = 'image/avatar/'.$id.'.'.$extension;
+            $image = Image::make($image)->crop((int)$avatarData->width, (int)$avatarData->height, (int)$avatarData->x, (int)$avatarData->y)->resize(100, 100)->save($path);
+            $user->avatar = $path;
+            $user->save();
+            return true;
+        }
+        return false;
+    }
+
+    public function deleteAvatar($id) {
+        $user = $this->getById($id);
+        $user->avatar = 'image/avatar/default.png';
+        $user->save();
     }
 }

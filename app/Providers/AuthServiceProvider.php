@@ -27,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
         $this->rolePolicies();
         $this->userPolicies();
+        $this->categoryPolicies();
+        $this->productPolicies();
         //
     }
 
@@ -42,6 +44,18 @@ class AuthServiceProvider extends ServiceProvider
         });
         Gate::define('set-roles', function ($user) {
             return $user->hasAccess(['set-roles']);
+        });
+    }
+
+    public function categoryPolicies() {
+        Gate::define('edit-categories', function ($user) {
+           return $user->hasAccess(['edit-categories']);
+        });
+    }
+
+    public function productPolicies() {
+        Gate::define('edit-products', function ($user) {
+            return $user->hasAccess(['edit-products']);
         });
     }
 }

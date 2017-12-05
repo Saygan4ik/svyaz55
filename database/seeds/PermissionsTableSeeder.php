@@ -32,5 +32,19 @@ class PermissionsTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'Редактирование категорий товаров',
+            'slug' => 'edit-categories',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'Редактирование товаров',
+            'slug' => 'edit-products',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
     }
 }

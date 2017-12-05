@@ -32,7 +32,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = $this->roleRepository->all();
-        return view('role/index', compact('roles'));
+        return view('admin/role/index', compact('roles'));
     }
 
     /**
@@ -43,7 +43,7 @@ class RoleController extends Controller
     public function create()
     {
         $permissions = $this->permissionRepository->all(['id', 'name', 'slug']);
-        return view('role/create', compact('permissions'));
+        return view('admin/role/create', compact('permissions'));
     }
 
     /**
@@ -69,7 +69,7 @@ class RoleController extends Controller
     {
         $role = $this->roleRepository->getBySlug($slug);
         $permissions = $this->permissionRepository->all(['id', 'name', 'slug']);
-        return view('role/edit', compact('permissions', 'role'));
+        return view('admin/role/edit', compact('permissions', 'role'));
     }
 
     /**
@@ -82,7 +82,7 @@ class RoleController extends Controller
     public function update(RoleRequest $request, $slug)
     {
         $this->roleRepository->update($slug, $request->all());
-        Session::flash('msg', 'Роль успешно отредактирована!');
+        Session::flash('msg', 'Роль успешно редактирована!');
         return redirect('role');
     }
 

@@ -19,9 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->nullable();
-            $table->string('avatar')->default('default.jpg');
+            $table->string('avatar')->default(config('base.default_avatar_path'));
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('role')
+                ->references('slug')
+                ->on('roles')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
         });
     }
 

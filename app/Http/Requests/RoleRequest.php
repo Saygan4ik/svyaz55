@@ -26,7 +26,7 @@ class RoleRequest extends FormRequest
         $slug = $this->route('role');
         return [
             'name' => 'required|string|unique:roles,name,'.$slug.',slug|max:50|min:1',
-            'slug' => 'required|string|unique:roles,slug,'.$slug.',slug|max:50|min:1'
+            'slug' => 'required|regex:#^[aA-zZ0-9\-_]+$#|string|unique:roles,slug,'.$slug.',slug|max:50|min:1'
         ];
     }
 }

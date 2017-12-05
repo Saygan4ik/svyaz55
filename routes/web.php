@@ -22,7 +22,20 @@ Auth::routes();
 
 Route::resource('role', 'RoleController', ['except' => 'show']);
 
+Route::get('user/{id}/profile', 'UserController@editProfile');
+Route::patch('user/{id}/profile', 'UserController@updateProfile');
+Route::post('user/{id}/saveAvatar', 'UserController@saveAvatar');
+Route::delete('user/{id}/deleteAvatar', 'UserController@deleteAvatar');
 Route::resource('user', 'UserController', ['except' => ['create', 'store']]);
+
+Route::resource('category', 'CategoryController');
+
+Route::resource('product', 'ProductController');
+Route::resource('characteristicProduct', 'CharacteristicProductController', ['except' => ['show']]);
+Route::resource('moreCharacteristicProduct', 'MoreCharacteristicProductController', ['except' => ['show']]);
+Route::post('product/{id}/saveImage', 'ProductController@saveImage');
+Route::delete('product/{id}/deleteImage', 'ProductController@deleteImage');
+Route::post('product/setMainImage', 'ProductController@setMainImage');
 
 Route::get('imagecache', function ()
 {
